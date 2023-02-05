@@ -1,0 +1,14 @@
+PROBLEM LINK: https://leetcode.com/problems/array-partition/
+
+
+
+class Solution {
+    public int arrayPairSum(int[] nums){
+    int n=nums.length,res=0;
+    Arrays.sort(nums);
+    for(int i=0;i<n;i+=2){
+        res+=nums[i];
+    }
+    return res;
+    }
+}
