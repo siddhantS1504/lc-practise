@@ -1,0 +1,27 @@
+PROBLEM LINK:https://leetcode.com/problems/two-out-of-three/
+
+
+class Solution {
+    public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+        Set<Integer> s = new HashSet<>();
+        Set<Integer> ss = new HashSet<>();
+        Set<Integer> sss = new HashSet<>();
+
+        for (int i = 0; i < nums1.length || i < nums2.length || i < nums3.length; ++i) {
+            if (i < nums1.length) s.add(nums1[i]);
+            if (i < nums2.length) ss.add(nums2[i]);
+            if (i < nums3.length) sss.add(nums3[i]);
+        }
+
+        Set<Integer> ans = new HashSet<>();
+
+        for (int i: s) {
+            if (ss.contains(i) || sss.contains(i)) ans.add(i);
+        }
+        for (int i: ss) {
+            if (s.contains(i) || sss.contains(i)) ans.add(i);
+        }
+
+                return new ArrayList<>(ans);
+    }
+}
